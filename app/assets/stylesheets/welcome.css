@@ -1,0 +1,75 @@
+.welcome-text {
+    color: #2c2c2c;
+    letter-spacing: .05em;
+    text-shadow: 
+        4px 4px 0px #d5d5d5, 
+        7px 7px 0px #3290B1;
+    font-size:2.5em;
+    -webkit-animation: shift 3s ;
+    animation: shift 3s ;
+    margin-top: 30vh;
+    text-align:center;
+    text-transform:uppercase;
+}
+
+.welcome-text h1 {
+    margin: 0;
+}
+
+.login-span {
+   animation: appear 3.2s;
+   text-align:center;
+   font-size: 1.7em;
+   color: #3290B1;
+}
+
+@keyframes shift {
+   0% {opacity:0;}
+   33% {margin-top:0px;opacity:0;}
+   100% {margin-top:30vh;opacity:1;text-shadow: 
+     4px 4px 0px #d5d5d5, 
+     7px 7px 0px #3290B1}
+}
+
+@keyframes appear {
+   0% {opacity:0;}
+   50% {opacity:0;}
+   100% {opacity:1;}
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;   
+  }
+
+.login-button {
+    font-size: 1.7em;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #d5d5d5;
+    cursor: pointer;
+    border: 3px solid rgba(0, 0, 0, 0.2);
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px rgba(0, 0, 0, 0.2), 3px 3px 0px 0px rgba(0, 0, 0, 0.2), 4px 4px 0px 0px rgba(0, 0, 0, 0.2), 5px 5px 0px 0px rgba(0, 0, 0, 0.2);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    animation: appear 4.4s;
+    margin-top:2vh;
+    background-color: #3290B1;
+    border-radius: 10%;
+}
+
+.login-button:active {
+    box-shadow: 0px 0px 0px 0px;
+    top: 5px;
+    left: 5px;
+}
+  
+@media (min-width: 768px) {
+    .login-button {
+        padding: 0.25em 0.75em;
+    }
+}

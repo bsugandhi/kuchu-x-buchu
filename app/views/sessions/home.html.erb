@@ -1,0 +1,47 @@
+<div class="gmeet-container">
+    <button class='gmeet-button' value=<%= params[:user_name] %>> Join meet </button>
+    <a href='https://meet.google.com/sgw-fppu-gts' style='display:"none"'></a>
+</div>
+
+
+<script>
+document.getElementsByClassName("gmeet-button")[0].addEventListener("click", function(event) {
+    var userName = document.getElementsByClassName("gmeet-button")[0].value;
+    event.preventDefault();
+    var data_js = {};
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+            document.querySelector('a').click();
+        } else
+        if(request.readyState == 4) {
+            window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
+        }
+    }
+    data_js['access_token'] = "8y20xsnlxle9ng5fz7qdwnd5"
+    data_js['subject'] = "Join the Google Meet";
+    if(userName == 'Sugu')
+        userName = 'Pro';
+    else
+        userName = 'Sugu';    
+    data_js['text'] = "Hi "+ userName +",\n\nPlease join the meet, I am waiting... \n\nSee you.";
+    var params = toParams(data_js);
+
+    request.open("POST", "https://postmail.invotes.com/send", true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    request.send(params);
+
+    return true;
+});
+
+function toParams(data_js) {
+    var form_data = [];
+    for ( var key in data_js ) {
+        form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(data_js[key]));
+    }
+
+    return form_data.join("&");
+}
+
+</script>

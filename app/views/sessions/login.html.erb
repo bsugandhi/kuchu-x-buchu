@@ -1,0 +1,21 @@
+<div class="wrap">
+   <h1 class="register-title">Login</h1>
+   <%= form_with url: "/login", method: :post, class: "register" do |f| %>
+    <div class="register-switch">
+      <%= f.radio_button :userName, 'Sugu', id: "Sugu", class: "register-switch-input", checked: true %>
+      <%= f.label :userName, "Kuchu", for: "Sugu", class: "register-switch-label" %>
+  
+      <%= f.radio_button :userName, 'Pro', id: "Pro", class: "register-switch-input" %>
+      <%= f.label :userName, "Buchu", for: "Pro", class: "register-switch-label" %>
+    </div>
+  
+    <%= f.password_field :password, class: "register-input", placeholder: "Password" %>
+  
+    <%= f.submit "Login", class: "register-button" %>
+    <div class="error-div">
+        <% if params[:error] %>
+            <p><%= params[:error]%></p>
+        <% end %>
+    </div>
+  <% end %> 
+</div>
